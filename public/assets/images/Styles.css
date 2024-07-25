@@ -1,0 +1,354 @@
+/* General styles */
+body {
+   
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.col-md-3, .col-md-9 {
+    padding: 15px;
+}
+
+/* Sidebar styles */
+.sidebar {
+    background-color: #f5e6f2;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.sidebar input[type="text"] {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+}
+
+.sidebar h5 {
+    color: #a0527a;
+    margin-top: 20px;
+}
+
+.sidebar .previous-notes ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar .previous-notes li {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+/* Main content styles */
+.main-content {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    color:#a0527a;
+
+}
+
+.main-content h3 {
+    color: #a0527a;
+}
+
+.main-content p {
+    color: #a0527aa5;
+}
+
+.main-content .form-control {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+}
+
+.main-content .btn-primary {
+    background-color: #a0527a;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.main-content .btn-primary:hover {
+    background-color: #894565;
+}
+
+/* Footer styles */
+.footer {
+    background-color: #f5e6f2;
+    border-top: 1px solid #ccc;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer p {
+    margin: 5px 0;
+    color: #666;
+}
+
+.footer a {
+    color: #a0527a;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+ 
+
+
+/*header style*/ 
+body {
+    /* Set the font-family */
+    color: #894565;
+    font-size: 18px;
+    background-color: #fff;
+}
+
+.navbar-brand {
+    font-weight: bold;
+}
+
+.navbar-text {
+    
+    margin-left: auto;
+
+}
+
+.header-logo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 50px;
+    /* Adjust the height as needed */
+}
+
+.navbar {
+    
+    background-color: #E4D1DD;
+    padding: 5px;
+    /* Add padding to the navbar */
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    height: 100px;
+}
+
+.navbar-nav .nav-link {
+    padding: 0.5rem 1rem;
+    color: white;
+    position: relative;
+}
+
+.navbar-nav .nav-link:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    background-color: #E4D1DD;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover:before,
+.navbar-nav .nav-link:focus:before {
+    transform: scaleX(1);
+}
+
+/* Add some margin to the content to prevent it from being hidden behind the sticky header */
+main {
+    margin-top: 60px;
+    /* Adjust the value as needed */
+}
+
+/* Custom dropdown styles */
+.dropdown-menu {
+
+    background-color: #fff;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    
+}
+
+.dropdown-item {
+    /* Set the font-family */
+    font-size: 18px;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+    text-align: left;
+}
+
+.dropdown-item:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown-toggle::after {
+    display: none;
+}
+
+.dropdown-menu .dropdown-header {
+    /* Set the font-family */
+    color: #894565;
+    font-size: 18px;
+    padding: 10px 20px;
+    background-color: #f7f7f7;
+}
+
+.navbar-text .dropdown-menu {
+    right: 0;
+    left: auto;
+}
+
+.nav-link {
+
+    /* Set the font-family */
+    color: #894565;
+    font-size: 18px;
+}
+
+/*end of header style*/ 
+
+
+/*style landing page*/ 
+
+body {
+
+    background-color: #fff;
+    font-family: 'Roboto', sans-serif;
+    /* Set the font-family */
+    color: #894565;
+    /* Set the text color */
+}
+
+
+
+/* Example of how to apply to specific elements */
+.navbar-brand {
+    font-weight: bold;
+    /* Adjust as needed */
+}
+
+
+/* notes css */
+.container {
+    margin-top: 50px;
+}
+   /* CSS for styling the sidebar */
+   .sidebar {
+    background-color: #e4d1dd;
+    padding: 10px;
+    border-radius: 5px;
+}
+  /* Style for the note boxes */
+  .note-box {
+    display: block;
+
+    border-radius: 5px;
+    text-decoration: none;
+    color: #894565;
+    transition: background-color 0.3s;
+    
+}
+
+.note-box:hover {
+color: #e4d1dd;
+}
+.sidebar h5 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar ul li:hover {
+    background-color: #e9ecef;
+
+}
+
+.main-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px #E4D1DD;
+    height: 650px;
+}
+
+.note-form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    height: 500px;
+}
+
+.note-form .form-control:hover {
+    border-color: #894565;
+    /* Set border color for input labels */
+}
+
+.note-form .form-control:focus {
+    border-color: #894565;
+    /* Set border color for focused state */
+    box-shadow: 2px 4px #E4D1DD;
+    /* Remove the default blue shadow on focus */
+}
+
+.sidebar .form-control:hover {
+    border-color: #894565;
+    /* Set border color for search input */
+}
+
+.sidebar .form-control:focus {
+    border-color: #894565;
+    /* Set border color for focused state */
+    box-shadow: none;
+    /* Remove the default blue shadow on focus */
+}
+.btn-primary {
+    background-color: #894565; /* Set the background color */
+    color: white; /* Text color */
+    border: none; /* Remove default button border */
+    padding: 10px 20px; /* Padding for the button */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Show pointer cursor on hover */
+    outline: none; /* Remove focus outline */
+}
+
+.btn-primary:hover,
+.btn-primary:active {
+    background-color: #894565; /* Change color on hover and when active (clicked) */
+}
