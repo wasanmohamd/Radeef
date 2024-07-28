@@ -45,9 +45,9 @@
                             data-bs-toggle="dropdown" aria-expanded="false">Services</a>
                         <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
                             <li class="dropdown-header">Services</li>
-                            <li><a class="dropdown-item" href="#">To-Do list</a></li>
+                            <li><a class="dropdown-item" href="/create">To-Do list</a></li>
                             <li><a class="dropdown-item" href="/note">Daily Notes</a></li>
-                            <li><a class="dropdown-item" href="#">Task Progress</a></li>
+                            <li><a class="dropdown-item" href="/task">Task Progress</a></li>
                         </ul>
                         
                     </li>

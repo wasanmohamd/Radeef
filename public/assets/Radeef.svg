@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 155.9 240.9">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #783c1f;
+        font-family: Cairo-Light, Cairo;
+        font-size: 6px;
+        font-weight: 300;
+      }
+
+      .cls-2 {
+        fill: none;
+      }
+
+      .cls-2, .cls-3 {
+        stroke-width: 0px;
+      }
+
+      .cls-4 {
+        font-size: 8px;
+      }
+
+      .cls-4, .cls-5 {
+        fill: #936984;
+        font-family: Cairo-Bold, Cairo;
+        font-weight: 700;
+      }
+
+      .cls-5 {
+        font-size: 10px;
+      }
+
+      .cls-3 {
+        fill: #606161;
+        opacity: .1;
+      }
+    </style>
+  </defs>
+  <rect class="cls-2" x="604.6" y="49.5" width="89.5" height="119.6"/>
+  <rect class="cls-3" x="-9.1" y="68.4" width="174.2" height="104.3"/>
+  <text class="cls-4" transform="translate(65.7 147.7)"><tspan x="0" y="0">$user</tspan></text>
+  <g>
+    <text/>
+    <text class="cls-1" transform="translate(13.6 228.8)"><tspan x="0" y="0">$date</tspan></text>
+  </g>
+  <text/>
+  <text/>
+  <image width="719" height="347" transform="translate(53.2) scale(0 0)" xlink:href="C:\Users\wasan\Desktop\Myproj\public\assets\images\Radeef.jpg"/>
+  <text class="cls-5" transform="translate(49.3 112.3)"><tspan x="0" y="0">$motivation</tspan></text>
+  <text/>
+</svg>
