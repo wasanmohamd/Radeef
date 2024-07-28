@@ -9,12 +9,27 @@ use App\Models\Note;
 
 class AuthManager extends Controller
 {
-    public function login()
+    function login()
     {
-        if (Auth::check()) {
-            return redirect(route('home'));
-        }
         return view('login');
+    }
+
+     function loginPost(Request $request)
+    {
+        $credentials = $request->only('email', 'password');
+
+        if (Auth::attempt($credentials)) {
+            $user = Auth::user();
+            if ($user->id == 0) {
+                // Admin
+                return redirect()->route('admin.dashboard');
+            } else {
+                // Normal user
+    return redirect()->intended(route('landing'));
+}
+        } else {
+            return redirect(route('login'))->with("error", "login details are not valid");
+        }
     }
 
     public function register()
@@ -25,21 +40,6 @@ class AuthManager extends Controller
         return view('register');
     }
 
-    public function loginPost(Request $request)
-    {
-        $request->validate([
-            'email' => 'required',
-            'password' => 'required'
-        ]);
-
-        $credentials = $request->only('email', 'password');
-
-        if (Auth::attempt($credentials)) {
-            return redirect()->intended(route('home'))->with("success", "Login successful");
-        }
-
-        return redirect(route('login'))->with("error", "Invalid login credentials");
-    }
 
     public function registerPost(Request $request)
     {
@@ -64,7 +64,7 @@ class AuthManager extends Controller
     public function logout()
     {
         Auth::logout();
-        return redirect(route('login'))->with("success", "Logged out successfully");
+        return redirect(route('landing'))->with("success", "Logged out successfully");
     }
 
     public function note()
