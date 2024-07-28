@@ -7,7 +7,7 @@
 <html>
 <head>
     <title>@yield('title')</title>
-    <link rel="stylesheet" href="{{ asset('assets/images/landStyle.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/landStyle.css') }}">
 
     <!-- Google Fonts -->
   <link
