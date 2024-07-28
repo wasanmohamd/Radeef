@@ -1,119 +1,50 @@
 @extends('layout')
-@section('title','Login')
+
+@section('title', 'Login')
+
 @section('content')
-
-<style>
-
-body {
-
-background-color: #f2f2f2;
-font-family: "Roboto", sans-serif;
-/* Set the font-family */
-color: #894565;
-/* Set the text color */
-}
-
-/* Apply the font and color to specific elements */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-.navbar-brand,
-.navbar-text,
-.sidebar h5,
-.note-form label,
-.note-form p,
-.note-form button {
-font-family: 'Georgia Pro Cond Semibold', serif;
-color: #894565;
-}
-
-/* Example of how to apply to specific elements */
-.navbar-brand {
-font-weight: bold;
-/* Adjust as needed */
-}
-
-    .centered-form {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-    }
-    .form-container {
-        background-color: white;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        max-width: 500px;
-        width: 100%;
-    }
-    .form-label {
-        color: #894565;
-    }
-    .form-control:focus {
-        border-color: #894565;
-        box-shadow: 0 0 5px rgba(137, 69, 101, 0.5);
-    }
-    .input-group-text {
-        background-color: #894565;
-        border-color: #894565;
-        color: white;
-    }
-    .form-control:hover {
-        border-color: #894565;
-    }
-    .btn-primary {
-        background-color: #894565;
-        border: none;
-    }
-    .btn-primary:hover {
-        background-color: #894565;
-    
-        }
-        .btn-primary:i {
-        background-color: #894565;
-    
-        }
-</style>
-
-<div class="container centered-form">
-    <div class="form-container">
-        @if($errors->any())
-            <div class="col-12">
-                @foreach($errors->all() as $error)
-                    <div class="alert alert-danger">{{$error}}</div>
-                @endforeach
-            </div>
-        @endif
-
-        @if(session()->has('error'))
-            <div class="alert alert-danger">{{session('error')}}</div>
-        @endif
-        
-        @if(session()->has('success'))
-            <div class="alert alert-success">{{session('success')}}</div>
-        @endif
-
-        <form action="{{ route('loginPost') }}" method="post">
-            @csrf  
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" placeholder="Enter your Email address">
-                <div id="emailHelp" class="form-text"></div>
-            </div>
-            <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Enter your Password">
-            </div>
-            
-            <div class="block mt-4">
+<div class="container-fluid" style="background-color: #E4D1DD; padding: 20px 0;">
+    <div class="text-center">
+        <img src="assets\img\logo-radeef - Copy.png" alt="Radeeef" style="width: 150px;">
+    </div>
+</div>
+<div class="container" style="max-width: 500px; margin-top: 50px;">
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+    @if (session('success'))
+    <div class="alert alert-success" role="alert">
+        <h4 class="alert-heading">Well done!</h4>
+        <p>Login success.</p>
+        <hr>
+        <p class="mb-0">Go to your page.</p>
+    </div>
+    {{ session('success') }}
+</div>
+@elseif (session('error'))
+<div class="alert alert-danger">
+    {{ session('error') }}
+</div>
+@endif
+<form action="{{ route('login.post') }}" method="POST" class="ms-auto me-auto mt-auto">
+    @csrf
+    <div class="mb-3">
+        <label for="email" class="form-label">Email:</label>
+        <input type="email" class="form-control" name="email" placeholder="Enter your Email" value="{{ old('email') }}">
+    </div>
+    <div class="mb-3">
+        <label for="password" class="form-label">Password:</label>
+        <input type="password" class="form-control" name="password" placeholder="Enter your Password">
+    </div>
+    <div class="block mt-4">
         <label for="remember_me" class="inline-flex items-center">
-            <input id="remember_me" type="checkbox"
-                class="rounded dark:bg-gray-900 border-gray-300 dark:border-gray-700 text-indigo-600 shadow-sm focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:focus:ring-offset-gray-800"
-                name="remember">
+            <input id="remember_me" type="checkbox" class="rounded dark:bg-gray-900 border-gray-300 dark:border-gray-700 text-indigo-600 shadow-sm focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:focus:ring-offset-gray-800" name="remember">
             <span class="ms-2 text-sm text-gray-600 dark:text-gray-400">Remember me</span>
         </label>
     </div>
@@ -121,9 +52,6 @@ font-weight: bold;
     <div class="text-center mt-3" style="color: #8B5373;">
         <a href="/register" class="text-decoration-none" style="color: #8B5373;">Don't have an account?</a> 
     </div>
-            
-        </form>
-        
-    </div>
+</form>
 </div>
 @endsection
