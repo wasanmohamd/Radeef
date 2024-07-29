@@ -7,11 +7,24 @@ body{
 .container {
     margin-top: 10px;
 }
+
+.h3, h3 {
+    font-size: calc(1.3rem + .6vw);
+    color: #894565;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    
+}
+
    /* CSS for styling the sidebar */
    .sidebar {
     background-color: #e4d1dd;
     padding: 10px;
     border-radius: 5px;
+    box-shadow:0 1.5px 2px #894565;
 }
   /* Style for the note boxes */
   .note-box {
@@ -31,6 +44,7 @@ color: #e4d1dd;
     margin-bottom: 10px;
     font-size: 1.25rem;
     font-weight: 600;
+    color: #894565;
 }
 
 .sidebar ul {
@@ -57,6 +71,11 @@ color: #e4d1dd;
     border-radius: 5px;
     box-shadow: 0 2px 8px #E4D1DD;
     height: 650px;
+}
+
+.form-label {
+    margin-bottom: .5rem;
+    color: #894565;
 }
 
 .note-form {
@@ -100,7 +119,7 @@ color: #e4d1dd;
     outline: none; /* Remove focus outline */
 }
 
-.btn-primary:hover,
-.btn-primary:active {
-    background-color: #894565; /* Change color on hover and when active (clicked) */
-}
+.btn-primary:focus ,.btn-primary:hover,.btn-primary:active {
+    background-color: #894565;
+ }
+
