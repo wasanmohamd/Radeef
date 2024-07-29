@@ -33,32 +33,24 @@ class AuthManager extends Controller
     }
 
 
-    public function register()
-    {
-        if (Auth::check()) {
-            return redirect(route('home'));
-        }
+    function register(){
         return view('register');
     }
 
-    public function registerPost(Request $request)
-    {
+    function registerPost(Request $request){
         $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required'
         ]);
-
-        $data['name'] = $request->name;
-        $data['email'] = $request->email;
-        $data['password'] = Hash::make($request->password);
-        $user = User::create($data);
-
-        if (!$user) {
-            return redirect(route('register'))->with("error", "Registration failed, please try again.");
-        }
-
-        return redirect(route('login'))->with("success", "Registration successful");
+        $date['name'] = $request->name;
+        $date['email'] = $request->email;
+        $date['password'] = Hash::make($request->password);
+        $user = User::create($date);
+    if(!$user){
+        return redirect(route('register'))->with("error", "Registration friled, try again.");
+    }
+    return redirect(route('login'))->with("Success", "Registration success, Login to access the app");
     }
 
     public function logout()
