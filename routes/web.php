@@ -3,9 +3,6 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\AuthManager;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\NoteController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\PasswordController;
 
 Route::get('/', function () {
     return view('landing');
@@ -15,20 +12,9 @@ Auth::routes();
 
 Route::get('/register', [AuthManager::class, 'register'])->name('register');
 Route::post('/register', [AuthManager::class, 'registerPost'])->name('register.post');
-Route::get('/logout', [AuthManager::class, 'logout'])->name('logout');
-
-Route::get('/admin/technicalsupport', function () {
-    return 'Admin technicalsupport';
-})->name('admin.technicalsupport')->middleware('auth');
-
-Route::get('/user/landing', function () {
-    return 'User landing';
-})->name('user.landing')->middleware('auth');
-
-// Resolved conflict section starts here
 
 Route::get('/login', [AuthManager::class, 'login'])->name('login');
-Route::post('/login', [AuthManager::class, 'loginPost'])->name('login.post');
+Route::post('/login', [AuthManager::class, 'loginPost'])->name('loginPost');
 
 Route::get('/logout', [AuthManager::class, 'logout'])->name('logout')->middleware('auth');
 
@@ -42,15 +28,10 @@ Route::get('/note/{id}/edit', [NoteController::class, 'edit'])->name('note.edit'
 
 Route::put('/note/{id}', [NoteController::class, 'update'])->name('note.update');
 
-Route::middleware('auth')->group(function () {
-    // Profile management
-    Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
-    Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
+Route::get('profile', function () {
+    return view('profile');
+})->name('profile');
 
-    // Password management
-    Route::put('/password', [PasswordController::class, 'update'])->name('password.update');
-});
-
-Route::get('landing', function () {
+Route::get('/landing', function () {
     return view('landing');
 })->name('landing');
