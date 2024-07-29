@@ -2,38 +2,11 @@
 @section('title','Registration')
 @section('content')
 
-
 <style>
- body {
+body {
 
-background-color: #f2f2f2;
-font-family: "Roboto", sans-serif;
-/* Set the font-family */
-color: #894565;
-/* Set the text color */
-}
+    background-color: #f2f2f2;
 
-/* Apply the font and color to specific elements */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-.navbar-brand,
-.navbar-text,
-.sidebar h5,
-.note-form label,
-.note-form p,
-.note-form button {
-font-family: "Roboto", sans-serif;
-color: #894565;
-}
-
-/* Example of how to apply to specific elements */
-.navbar-brand {
-font-weight: bold;
-/* Adjust as needed */
 }
 
 .centered-form {
@@ -71,6 +44,11 @@ font-weight: bold;
     border-color: #894565;
 }
 </style>
+<div class="container-fluid" style="background-color: #E4D1DD; padding: 20px 0;">
+    <div class="text-center">
+        <img src="assets\img\logo-radeef - Copy.png" alt="Radeeef" style="width: 150px;">
+    </div>
+</div>
 
 <div class="container centered-form">
     <div class="form-container">
@@ -94,7 +72,7 @@ font-weight: bold;
             @csrf
             <!-- name -->
             <div class="mb-3">
-                <label for="exampleInputName" class="form-label">First Name</label>
+                <label for="exampleInputName" class="form-label">First Name:</label>
                 <input type="text" class="form-control" id="exampleInputName" aria-describedby="nameHelp"
                     placeholder="Enter your full name" name="name">
                 <div id="nameHelp" class="form-text"></div>
@@ -102,7 +80,7 @@ font-weight: bold;
 
             <!-- user -->
             <div class="mb-3">
-                <label for="exampleInputUsername" class="form-label">Username</label>
+                <label for="exampleInputUsername" class="form-label">Username:</label>
                 <div class="input-group flex-nowrap">
                     <span class="input-group-text" id="addon-wrapping">@</span>
                     <input type="text" class="form-control" placeholder="Enter your Username" aria-label="Username"
@@ -112,7 +90,7 @@ font-weight: bold;
 
             <!-- email -->
             <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Email</label>
+                <label for="exampleInputEmail1" class="form-label">Email:</label>
                 <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
                     placeholder="Enter your Email address" name="email">
                 <div id="emailHelp" class="form-text"></div>
@@ -120,7 +98,7 @@ font-weight: bold;
 
             <!-- password -->
             <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Password</label>
+                <label for="exampleInputPassword1" class="form-label">Password:</label>
                 <input type="password" class="form-control" id="exampleInputPassword1" name="password"
                     placeholder="Enter your Password" pattern="^(?=.*[A-Z]).{8,}$"
                     title="Password must be at least 8 characters long and include at least one capital letter."
@@ -132,7 +110,7 @@ font-weight: bold;
 
             <!-- password confirmation -->
             <div class="mb-3">
-                <label for="exampleInputPassword2" class="form-label">Confirm Password</label>
+                <label for="exampleInputPassword2" class="form-label">Confirm Password:</label>
                 <input type="password" class="form-control" id="exampleInputPassword2" name="password_confirmation"
                     placeholder="Enter your Confirm Password">
             </div>
@@ -142,6 +120,4 @@ font-weight: bold;
         </form>
     </div>
 </div>
-
 @endsection
-

@@ -9,62 +9,54 @@ use App\Models\Note;
 
 class AuthManager extends Controller
 {
-    public function login()
+    function login()
     {
-        if (Auth::check()) {
-            return redirect(route('home'));
-        }
         return view('login');
     }
 
-    public function register()
+     function loginPost(Request $request)
     {
-        if (Auth::check()) {
-            return redirect(route('home'));
-        }
-        return view('register');
-    }
-
-    public function loginPost(Request $request)
-    {
-        $request->validate([
-            'email' => 'required',
-            'password' => 'required'
-        ]);
-
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
-            return redirect()->intended(route('home'))->with("success", "Login successful");
+            $user = Auth::user();
+            if ($user->id == 0) {
+                // Admin
+                return redirect()->route('admin.dashboard');
+            } else {
+                // Normal user
+    return redirect()->intended(route('landing'));
+}
+        } else {
+            return redirect(route('login'))->with("error", "login details are not valid");
         }
-
-        return redirect(route('login'))->with("error", "Invalid login credentials");
     }
 
-    public function registerPost(Request $request)
-    {
+
+    function register(){
+        return view('register');
+    }
+
+    function registerPost(Request $request){
         $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required'
         ]);
-
-        $data['name'] = $request->name;
-        $data['email'] = $request->email;
-        $data['password'] = Hash::make($request->password);
-        $user = User::create($data);
-
-        if (!$user) {
-            return redirect(route('register'))->with("error", "Registration failed, please try again.");
-        }
-
-        return redirect(route('register'))->with("success", "Registration successful");
+        $date['name'] = $request->name;
+        $date['email'] = $request->email;
+        $date['password'] = Hash::make($request->password);
+        $user = User::create($date);
+    if(!$user){
+        return redirect(route('register'))->with("error", "Registration friled, try again.");
+    }
+    return redirect(route('login'))->with("Success", "Registration success, Login to access the app");
     }
 
     public function logout()
     {
         Auth::logout();
-        return redirect(route('login'))->with("success", "Logged out successfully");
+        return redirect(route('landing'))->with("success", "Logged out successfully");
     }
 
     public function note()
