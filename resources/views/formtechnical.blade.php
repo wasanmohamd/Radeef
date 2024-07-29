@@ -86,19 +86,14 @@
     <div class="container">
         <div class="main-content">
             <h1>Technical Support</h1>
-            <div class="date"><p>Today is {{ \Carbon\Carbon::now()->format('l, F j, Y') }}</p></div>
-            <div class="info">
-                <div>
-                   
-                </div>
-                <div class="email">
-                    
-                </div>
-                <div>
-                   
-                </div>
+            <div class="date">
+                <p>Today is {{ \Carbon\Carbon::now()->format('l, F j, Y') }}</p>
             </div>
-            <form method="POST" action="submit_inquiry.php">
+            <div class="info">
+                <!-- Additional information can be added here if needed -->
+            </div>
+            <form method="POST" action="{{ route('inquiry.store') }}">
+                @csrf
                 <input type="text" name="name" placeholder="Your Name" required aria-label="Your Name">
                 <input type="email" name="email" placeholder="Your Email" required aria-label="Your Email">
                 <input type="text" name="ticket" placeholder="Ticket Address" required aria-label="Ticket Address">

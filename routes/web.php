@@ -101,3 +101,9 @@ Route::post('/inquiry', [InquiryController::class, 'store'])->name('inquiry.stor
  Route::post('/send-email/{id}', [InquiryController::class, 'sendEmail'])->name('send.email');
  Route::get('/inquiries', [InquiryController::class, 'index'])->name('inquiries.index');
 Route::post('/inquiries/{id}/send-email', [InquiryController::class, 'sendEmail'])->name('inquiries.sendEmail');
+
+// List inquiries
+Route::get('/technicalSupport', [InquiryController::class, 'index'])->name('inquiries.index');
+ 
+// Export inquiries
+Route::get('/technicalSupport/export', [InquiryController::class, 'export'])->name('technicalSupport.export');
