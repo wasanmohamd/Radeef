@@ -71,28 +71,24 @@ class TodoController extends Controller
         return redirect()->route('todos.index')->with('success', 'Todo deleted successfully!');
     }
 
-    public function exportToSvg()
+    public function exportToSVG()
     {
+        // Your logic to generate SVG data from the todos
         $todos = Todo::all();
 
-        $svgContent = '<?xml version="1.0" encoding="UTF-8" standalone="no"?>';
-        $svgContent .= '<svg xmlns="http://www.w3.org/2000/svg" width="500" height="300">';
-        $svgContent .= '<style>.small { font: italic 13px sans-serif; }</style>';
+        // Example SVG content
+        $svgContent = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+                        <text x="10" y="20" font-family="Arial" font-size="12">Todo List</text>';
 
-        $yPosition = 20;
-
-        foreach ($todos as $todo) {
-            $svgContent .= "<text x='10' y='{$yPosition}' class='small'>{$todo->title}: {$todo->description}</text>";
-            $yPosition += 20;
+        foreach ($todos as $index => $todo) {
+            $yPosition = 40 + ($index * 20);
+            $svgContent .= '<text x="10" y="' . $yPosition . '" font-family="Arial" font-size="12">' . $todo->title . '</text>';
         }
 
         $svgContent .= '</svg>';
 
-        return response($svgContent, 200)
-            ->header('Content-Type', 'image/svg+xml')
-            ->header('Content-Disposition', 'attachment; filename="todos.svg"');
+        return response($svgContent)->header('Content-Type', 'image/svg+xml');
     }
 }
-
 
 ?>

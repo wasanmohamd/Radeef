@@ -6,6 +6,13 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NoteController;
 use App\Http\Controllers\PasswordController;
 
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TodoController;
+use App\Http\Controllers\InquiryController;
+use App\Http\Controllers\TaskController;
+use App\Http\Controllers\TechnicalSupportController;
+use App\Http\Controllers\Api\EmailController;
+
 
 Route::get('/', function () {
     return view('landing');
@@ -52,3 +59,45 @@ Route::get('/note', [NoteController::class, 'showNotes'])->name('note.showNotes'
 Route::get('/note/{id}/edit', [NoteController::class, 'edit'])->name('note.edit');
 
 Route::put('/note/{id}', [NoteController::class, 'update'])->name('note.update');
+
+
+// Todo Routes
+Route::prefix('todos')->as('todos.')->controller(TodoController::class)->group(function(){
+    Route::get('index', 'index')->name('index');
+    Route::post('store', 'store')->name('store');
+    Route::get('create', 'create')->name('create');
+    Route::get('show/{id}', 'show')->name('show');
+    Route::get('{id}/edit', 'edit')->name('edit');
+    Route::post('/update/{id}', 'update')->name('update');
+    Route::delete('destroy', 'destroy')->name('destroy');
+    Route::get('/taskprogress', 'taskProgress')->name('taskprogress');
+}
+// Task Controller Routes
+Route::get('/', [TaskController::class, 'index'])->name('index');
+Route::post('/tasks/{task}/complete', [TaskController::class, 'complete'])->name('tasks.complete');
+Route::post('/tasks/{task}/incomplete', [TaskController::class, 'incomplete'])->name('tasks.incomplete');
+Route::get('/task-progress', [TaskController::class, 'progress'])->name('task.progress');
+Route::get('/task-progress', [TaskController::class, 'taskProgress'])->name('task.progress');
+
+Route::get('/formtechnical', function () {
+    return view('formtechnical');
+})->name('formtechnical');
+
+Route::get('/taskprogress', function () {
+    return view('taskprogress');
+})->name('taskprogress');
+
+Route::post('/inquiry', [InquiryController::class, 'store'])->name('inquiry.store');
+
+
+ Route::get('/sendEmail',[EmailController::class]);
+
+ Route::get('/technicalSupport', [InquiryController::class, 'index'])->name('inquiries.index');
+
+ // Show email form
+ Route::get('/write-email/{id}', [InquiryController::class, 'showEmailForm'])->name('writingpage.email');
+ 
+ // Send email
+ Route::post('/send-email/{id}', [InquiryController::class, 'sendEmail'])->name('send.email');
+ Route::get('/inquiries', [InquiryController::class, 'index'])->name('inquiries.index');
+Route::post('/inquiries/{id}/send-email', [InquiryController::class, 'sendEmail'])->name('inquiries.sendEmail');
