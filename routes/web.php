@@ -13,6 +13,7 @@ use App\Http\Controllers\TaskController;
 use App\Http\Controllers\TechnicalSupportController;
 use App\Http\Controllers\Api\EmailController;
 
+
 Route::get('/', function () {
     return view('landing');
 })->name('home');
@@ -20,6 +21,13 @@ Route::get('/', function () {
 Route::get('landing', function () {
     return view('landing');
 })->name('landing');
+Route::get('/register', [AuthManager::class, 'register'])->name('register');
+Route::post('/register', [AuthManager::class, 'registerPost'])->name('register.post');
+Route::get('/logout', [AuthManager::class, 'logout'])->name('logout');
+
+Route::get('/login', [AuthManager::class, 'login'])->name('login');
+Route::post('/login', [AuthManager::class, 'loginPost'])->name('loginPost');
+
 
 Route::middleware('auth')->group(function () {
     // Profile management
