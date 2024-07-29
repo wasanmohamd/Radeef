@@ -1,281 +1,521 @@
-@extends('layout')
+<!DOCTYPE html>
+<html lang="en">
 
-@section('title', 'Create')
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@yield('title')</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
 
-@section('content')
+        .container {
+            margin-top: 10px;
+        }
 
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">To Do List</div>
+        .card {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border: none;
+            margin-top:190px ;
+            margin-bottom:190px ;
+        }
 
-                <div class="card-body">
-                    @if (session()->has('success'))
-                    <div class="alert alert-success">
-                        {{ session()->get('success') }}
-                    </div>
-                    @endif
+        .card-header {
+            background-color: #d4b8c6;
+            color: #ffffff;
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            padding: 10px;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+        }
 
-                    @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                    @endif
+        .card-body {
+            padding: 20px;
+        }
 
-                    <a class="btn btn-back" href="javascript:history.back()">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-arrow-left" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd"
-                                d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8" />
-                        </svg>
-                        
-                    </a>
+        .form-label {
+            font-weight: bold;
+            color: #5a2f4d;
+        }
 
-                    <form method="post" action="{{route('todos.store')}}">
-                        @csrf
-                        <div class="mb-3">
-                            <label class="form-label">Task</label>
-                            <input type="text" name="title" class="form-control">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Description</label>
-                            <textarea name="description" class="form-control" cols="5" rows="5"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </form>
+        .form-control {
+            border-radius: 8px;
+            border: 1px solid #d4b8c6;
+        }
 
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+        .btn-primary {
+            background-color: #a0527a;
+            border-color: #a0527a;
+            border-radius: 8px;
+        }
 
-@endsection
+        .btn-primary:hover {
+            background-color: #813d5e;
+            border-color: #813d5e;
+        }
 
-@section('styles')
-<style>
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f2f2f2;
-    margin: 0;
-    padding: 0;
+        .btn-back {
+        position: absolute;
+        top: 7px;
+        left: 10px;
+        color: #e4d1dd;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        stroke: #ffffff;
+
+        }
+
+        
+
+        .btn-exportpage {
+            background-color: #6c757d;
+            border-color: #6c757d;
+            border-radius: 8px;
+            color: #ffffff;
+            margin-right: 10px;
+        }
+
+        .btn-exportpage:hover {
+            background-color: #5a6268;
+            border-color: #5a6268;
+        }
+
+        .btn-taskprogress {
+            border-color: #28a745;
+            border-radius: 8px;
+            color: #ffffff;
+        }
+
+        .btn-taskprogress:hover {
+            background-color: #218838;
+            border-color: #1e7e34;
+        }
+
+        .alert-success {
+            background-color: #e2f0d9;
+            color: #4f8a10;
+            border: 1px solid #a1c47d;
+            border-radius: 8px;
+        }
+
+        .alert-danger {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+            border-radius: 8px;
+        }
+
+         /*--------------------------------------------------------------
+# Header
+--------------------------------------------------------------*/
+#header {
+  background: #E4D1DD;
+  z-index: 997;
+  transition: all 0.5s ease;
+  padding: 20px 0;
 }
 
-.container {
-    margin-top: 50px;
+#header #logo h1 {
+  color: #505050;
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin: 0;
 }
 
-.card {
-    background-color: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border: none;
+#header #logo h1 a {
+  color: #555;
+  display: inline-block;
+  text-decoration: none;
 }
 
-.card-header {
-    background-color: #d4b8c6;
-    color: #ffffff;
-    font-size: 24px;
-    font-weight: bold;
-    text-align: center;
-    padding: 10px;
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;
+#header #logo h1 a span {
+  color: #8B5373;
 }
 
-.card-body {
-    padding: 20px;
+#header #logo img {
+  padding: 0;
+  margin: 0;
 }
 
-.form-label {
-    font-weight: bold;
-    color: #5a2f4d;
-}
-
-.form-control {
-    border-radius: 8px;
-    border: 1px solid #d4b8c6;
-}
-
-.btn-primary {
-    background-color: #a0527a;
-    border-color: #a0527a;
-    border-radius: 8px;
-}
-
-.btn-primary:hover {
-    background-color: #813d5e;
-    border-color: #813d5e;
-}
-
-.btn-back{
-    background-color: #a0527a;
-    color: #ffffff;
-    border-radius: 8px;
-    border: none;
-    display: inline-flex;
-    align-items: center;
-    padding: 0.375rem 0.75rem;
-    font-size: 1rem;
-}
-
-.btn-back:hover {
-    background-color: #813d5e;
-}
-
-.btn-exportpage {
-    background-color: #6c757d;
-    border-color: #6c757d;
-    border-radius: 8px;
-    color: #ffffff;
-    margin-right: 10px;
-}
-
-.btn-exportpage:hover {
-    background-color: #5a6268;
-    border-color: #5a6268;
-}
-
-.btn-taskprogress {
-    background-color: #28a745;
-    border-color: #28a745;
-    border-radius: 8px;
-    color: #ffffff;
-}
-
-.btn-taskprogress:hover {
-    background-color: #218838;
-    border-color: #1e7e34;
-}
-
-.alert-success {
-    background-color: #e2f0d9;
-    color: #4f8a10;
-    border: 1px solid #a1c47d;
-    border-radius: 8px;
-}
-
-.alert-danger {
-    background-color: #f8d7da;
-    color: #721c24;
-    border: 1px solid #f5c6cb;
-    border-radius: 8px;
+#header.header-scrolled {
+  background: #fff;
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.1);
+  padding: 12px 0;
 }
 
 /*--------------------------------------------------------------
-# Footer
+# Navigation Menu
 --------------------------------------------------------------*/
-.footer {
-    background: #E4D1DD;
-    padding-top: 50px;
+
+.navbar {
+  padding: 0;
 }
 
-.footer .footer-logo .navbar-brand {
-    color: #000000;
-    display: inline-block;
-    float: none;
-    font-family: "Philosopher", sans-serif;
-    font-size: 24px;
-    font-weight: 500;
-    height: 100%;
-    letter-spacing: 0.2em;
-    padding-left: 0;
-    padding-top: 0;
+.navbar ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  list-style: none;
+  align-items: center;
 }
 
-.footer .footer-logo p {
-    color: #000000;
-    font-size: 12px;
-    letter-spacing: 1px;
+.navbar li {
+  position: relative;
 }
 
-.footer .list-menu>h4 {
-    color: #8B5373;
-    padding-bottom: 20px;
+.navbar a,
+.navbar a:focus {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0 10px 30px;
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  color: #222;
+  white-space: nowrap;
+  transition: 0.3s;
+  letter-spacing: 0;
 }
 
-.footer .list-menu ul li a {
-    color: #000000;
-    font-size: 12px;
-    padding-left: 5px;
-    text-decoration: none;
-    letter-spacing: 0;
+.navbar a i,
+.navbar a:focus i {
+  font-size: 12px;
+  line-height: 0;
+  margin-left: 5px;
 }
 
-.footer .copyrights {
-    background: #fff;
-    margin-top: 50px;
-    text-align: center;
-    padding: 25px;
+.navbar a:hover,
+.navbar .active,
+.navbar .active:focus,
+.navbar li:hover>a {
+  color: #8B5373;
 }
 
-.footer .copyrights p,
-.footer .copyrights .credits {
-    margin: 0;
-    padding: 0;
-    font-family: "Open Sans", sans-serif;
-    font-weight: normal;
-    font-size: 14px;
-    letter-spacing: 0;
+.navbar .dropdown ul {
+  display: block;
+  position: absolute;
+  left: 14px;
+  top: calc(100% + 30px);
+  margin: 0;
+  padding: 10px 0;
+  z-index: 99;
+  opacity: 0;
+  visibility: hidden;
+  background: #fff;
+  box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+  transition: 0.3s;
+  border-radius: 4px;
 }
 
-.footer .copyrights p a,
-.footer .copyrights .credits a {
-    letter-spacing: 0;
-    color: #8B5373;
+.navbar .dropdown ul li {
+  min-width: 200px;
 }
-</style>
-@endsection
 
-<!-- ======= Footer ======= -->
-@section('footer')
-<footer class="footer">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 col-lg-4">
-                <div class="footer-logo">
-                    <img src="public/assets/assets/img/logo-radeef - Copy.png" alt="Radeeef" style="width: 300px;">
-                </div>
-            </div>
+.navbar .dropdown ul a {
+  padding: 10px 20px;
+  text-transform: none;
+}
 
-            <div class="col-sm-6 col-md-3 col-lg-2">
-                <div class="list-menu">
-                    <h4>Call Us</h4>
-                    <p class="bi bi-phone"> +966 560000000</p>
-                </div>
-            </div>
+.navbar .dropdown ul a i {
+  font-size: 12px;
+}
 
-            <div class="col-sm-6 col-md-3 col-lg-2">
-                <div class="list-menu">
-                    <h4>Send us a message</h4>
-                    <p class="bi bi-envelope"> Radeef@example.com</p>
-                </div>
-            </div>
+.navbar .dropdown ul a:hover,
+.navbar .dropdown ul .active:hover,
+.navbar .dropdown ul li:hover>a {
+  color: #8B5373;
+}
 
-            <div class="col-sm-6 col-md-3 col-lg-2">
-                <div class="list-menu">
-                    <h4>Follow us</h4>
-                    <ul class="list-unstyled">
-                        <a href="#"><i class="bi bi-twitter"></i></a>
-                        <a href="#"><i class="bi bi-instagram"></i></a>
+.navbar .dropdown:hover>ul {
+  opacity: 1;
+  top: 100%;
+  visibility: visible;
+}
+
+.navbar .dropdown .dropdown ul {
+  top: 0;
+  left: calc(100% - 30px);
+  visibility: hidden;
+}
+
+.navbar .dropdown .dropdown:hover>ul {
+  opacity: 1;
+  top: 0;
+  left: 100%;
+  visibility: visible;
+}
+
+@media (max-width: 1366px) {
+  .navbar .dropdown .dropdown ul {
+    left: -90%;
+  }
+
+  .navbar .dropdown .dropdown:hover>ul {
+    left: -100%;
+  }
+}
+
+.mobile-nav-toggle {
+  color: #222;
+  font-size: 28px;
+  cursor: pointer;
+  display: none;
+  line-height: 0;
+  transition: 0.5s;
+}
+
+.mobile-nav-toggle.bi-x {
+  color: #fff;
+}
+.arrow-button {
+     
+    }
+@media (max-width: 991px) {
+  .mobile-nav-toggle {
+    display: block;
+  }
+
+  .navbar ul {
+    display: none;
+  }
+}
+
+.navbar-mobile {
+  position: fixed;
+  overflow: hidden;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: rgba(34, 34, 34, 0.9);
+  transition: 0.3s;
+  z-index: 999;
+}
+
+.navbar-mobile .mobile-nav-toggle {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+.navbar-mobile ul {
+  display: block;
+  position: absolute;
+  top: 55px;
+  right: 15px;
+  bottom: 15px;
+  left: 15px;
+  padding: 10px 0;
+  border-radius: 6px;
+  background-color: #fff;
+  overflow-y: auto;
+  transition: 0.3s;
+}
+
+.navbar-mobile a,
+.navbar-mobile a:focus {
+  padding: 10px 20px;
+  font-size: 15px;
+  color: #222;
+}
+
+.navbar-mobile a:hover,
+.navbar-mobile .active,
+.navbar-mobile li:hover>a {
+  color: #8B5373;
+}
+
+.navbar-mobile .getstarted,
+.navbar-mobile .getstarted:focus {
+  margin: 15px;
+}
+
+.navbar-mobile .dropdown ul {
+  position: static;
+  display: none;
+  margin: 10px 20px;
+  padding: 10px 0;
+  z-index: 99;
+  opacity: 1;
+  visibility: visible;
+  background: #fff;
+  box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+}
+
+.navbar-mobile .dropdown ul li {
+  min-width: 200px;
+}
+
+.navbar-mobile .dropdown ul a {
+  padding: 10px 20px;
+}
+
+.navbar-mobile .dropdown ul a i {
+  font-size: 12px;
+}
+
+
+       
+    </style>
+</head>
+
+<body>
+<header id="header" class="header fixed-top d-flex align-items-center">
+    <div class="container d-flex align-items-center justify-content-between">
+
+        <div id="logo">
+            <img src="\assets\images\radeef.png" alt="Radeeef" style="width: 150px;">
+        </div>
+
+        <nav id="navbar" class="navbar">
+            <ul>
+                @auth
+                <li class="nav-item">
+                    <a class="nav-link" href="/landing#hero">Radeef</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/landing#features">Why Radeef?</a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="landing#Services" id="servicesDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">Services</a>
+                    <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                        <li class="dropdown-header">Services</li>
+                        <li><a class="dropdown-item" href="#">To-Do list</a></li>
+                        <li><a class="dropdown-item" href="/note">Daily Notes</a></li>
+                        <li><a class="dropdown-item" href="#">Task Progress</a></li>
                     </ul>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/landing#screenshots">About Us</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/landing#team">Team</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/landing#contact">Support</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/technicalSupport">Admin </a>
+                </li>
+                @else
+                <li class="nav-item">
+                    <a class="nav-link" href="/landing#hero">Radeef</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/landing#features">Why Radeef?</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/landing#screenshots">About Us</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/landing#team">Team</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/landing#contact">Support</a>
+                </li>
+<!-- 
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('register') }}">Register</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('login') }}">Log In</a>
+                </li> -->
+                @endauth
+            </ul>
+            @auth
+            <span class="navbar-text dropdown">
+                <a class="dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    {{ auth()->user()->name }}
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="userDropdown">
+                    <li class="dropdown-header">Account</li>
+                    <li><a class="dropdown-item" href="/profile">Profile</a></li>
+                    <li><a class="dropdown-item" href="{{ route('logout') }}">Log Out</a></li>
+                </ul>
+            </span>
+            @endauth
+
+            <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav><!-- .navbar -->
+    </div>
+</header><!-- End Header -->
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">To Do List</div>
+
+                    <div class="card-body">
+                        @if (session()->has('success'))
+                        <div class="alert alert-success">
+                            {{ session()->get('success') }}
+                        </div>
+                        @endif
+
+                        @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                        @endif
+
+                        <a class="btn btn-back" href="/landing">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-arrow-left" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8" />
+                            </svg>
+                        </a>
+
+                        <form method="post" action="{{route('todos.store')}}">
+                            @csrf
+                            <div class="mb-3">
+                                <label class="form-label">Task</label>
+                                <input type="text" name="title" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Description</label>
+                                <textarea name="description" class="form-control" cols="5" rows="5"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="copyrights">
-        <div class="container">
-            <div class="credits">
-                <!-- Credits and other information can go here -->
-            </div>
-        </div>
-    </div>
-    <script src="public/assets/assets/js/scripts.js"></script>
-</footer>
-@endsection
+
+</body>
+
+</html>
