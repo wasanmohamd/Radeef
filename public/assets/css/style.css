@@ -1059,8 +1059,8 @@ section {
 }
 
 .footer .copyrights {
-  background: #E4D1DD;
-  margin-top: 0;
+  background: #fff;
+  margin-top: 50px;
   text-align: center;
   padding: 25px;
 }
