@@ -1,15 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layout')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-    </script>
+@section('title', 'create')
+
+@section('content')
     <style>
         
     body {
@@ -20,7 +13,8 @@
 }
 
 .container {
-    margin-top: 50px;
+    margin-bottom: 10px;
+    margin-top: 100px;
 }
 
 .card {
@@ -28,6 +22,8 @@
     border-radius: 15px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     border: none;
+    margin-top: 200px;
+    margin-bottom: 100px;
 }
 
 .card-header {
@@ -43,10 +39,11 @@
 
 .card-body {
     padding: 20px;
+    
 }
 
 .table {
-    margin-top: 20px;
+    margin-top: 200px;
 }
 
 .table th, .table td {
@@ -64,6 +61,8 @@
     background-color: #f7f5f9; 
 }
 
+
+
 /* Button Styles */
 .btn-success {
     background-color: #d4b8c6; 
@@ -71,33 +70,6 @@
     border-radius: 8px;
 }
 
-.btn-info {
-    background-color: #a0527a; 
-    border-color: #e0aaff;
-    color: #ffffff;
-    border-radius: 8px;
-}
-
-.btn-view {
-    background-color: #C676A3; 
-    border-color: #a085b5;
-    color: #ffffff;
-    border-radius: 8px;
-}
-
-.btn-edit {
-    background-color: #A6678B; 
-    border-color: #6c63ff;
-    color: #ffffff;
-    border-radius: 8px;
-}
-
-.btn-delete {
-    background-color: #a21f1f; /* Red */
-    border-color: #dc3545;
-    color: #ffffff;
-    border-radius: 8px;
-}
 
 /* Alert Styles */
 .alert-success {
@@ -115,6 +87,19 @@
     border-radius: 8px;
     padding: 10px;
 }
+
+.btn-back{
+        position: absolute;
+        top: 12px;
+        left: 10px;
+        background-color: #d4b8c6;
+        color: #e4d1dd;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        stroke: #ffffff;
+
+        }
 
 /* Form Styles */
 form {
@@ -136,22 +121,29 @@ h4 {
     color: #6c757d;
 }
 </style>
-</head>
-
-<body>
 
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('dashboard') }}</div>
+                    <div class="card-header">{{ __('task') }}</div>
                     <div class="card-body">
+                        
                         @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
                         </div>
                         @endif
-                        <a href=" {{url()->previous() }}" class="btn btn-sm btn-info" >Go Back</a><br>
+
+                        <a class="btn btn-back" href="/todos/index">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-arrow-left" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8" />
+                           </svg> 
+                        </a>
+
                         <b>Your Todo title is:</b> {{ $todo->title }}<br>
                         <b>Your Todo description is:</b> {{ $todo->description }}
                     </div>
@@ -159,55 +151,6 @@ h4 {
             </div>
         </div>
     </div>
-</body>
-
-</html>
+@endsection
 
 
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-    </script>
-
-</head>
-
-<body>
-
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header"> {{__('dashboard')}}</div>
-
-                    <div class="card-body">
-                        @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                        
-       
-    <b> Your Todo title is:</b> {{$todo->title}}
-    <b> Your Todo description is:</b> {{$todo->description}}
-    </div>
-@endif
-
-                       
-
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</body>
-
-</html> -->

@@ -1,15 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layout')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-    </script>
+@section('title', 'create')
+
+@section('content')
+
+
     <style>
     body {
         font-family: Arial, sans-serif;
@@ -19,15 +14,20 @@
     }
 
     .container {
-        margin-top: 50px;
+        margin-top: 70px;
+        
     }
 
     .card {
-        background-color: #ffffff;
-        border-radius: 12px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        border: none;
-    }
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: none;
+    margin-top: 150px;
+    margin-bottom: 50px;
+    animation: slide-in 1s ease-in-out;
+    
+}
 
     .card-header {
         background-color: #d4b8c6;
@@ -41,7 +41,8 @@
     }
 
     .card-body {
-        padding: 20px;
+        padding: 10px;
+        
     }
 
     .form-label {
@@ -54,14 +55,28 @@
         border: 1px solid #d4b8c6;
     }
 
-    .btn-primary {
-        background-color: #a0527a;
-        border-color: #a0527a;
-        border-radius: 8px;
+    .mb-3{
+
+        font-weight: bold;
+        color: #5a2f4d; 
     }
 
+    .btn-primary {
+        background-color: #a0527a;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        padding: 5px 10px;
+        margin: 5px;
+        cursor: pointer;
+        width: 100px; /* Set a specific width based on the reference button */
+        margin-left: 17px;
+        margin-bottom: 50px;
+    }
+
+
     .btn-primary:hover {
-        background-color: #813d5e;
+        background-color: #a0527a;
         border-color: #813d5e;
     }
 
@@ -78,19 +93,39 @@
         border: 1px solid #f5c6cb;
         border-radius: 8px;
     }
-    </style>
-</head>
 
-<body>
+    .btn-back{
+        position: absolute;
+        top: 5px;
+        left: 10px;
+        background-color: #d4b8c6;
+        color: #e4d1dd;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        stroke: #ffffff;
+
+        }
+
+    
+    </style>
+
+
 
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header"> to do list </div>
-
+                    <div class="card-header"> Edit Form </div>
+                    <a class="btn btn-back" href="/todos/index">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-arrow-left" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8" />
+                            </svg>
+                        </a>
                     <div class="card-body">
-                        <h4>Edit Form<h4><br>
+                        
                         
 
                                 <form method="POST" action="/todos/update/{{$todo->id}}">
@@ -129,6 +164,5 @@
         </div>
     </div>
     </div>
-</body>
 
-</html>
+    @endsection

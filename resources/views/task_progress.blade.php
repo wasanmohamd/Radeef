@@ -3,18 +3,7 @@
 @section('title', 'task_Progress')
 
 @section('content')
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title')</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-    </script>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -28,6 +17,8 @@
             padding: 20px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             text-align: center;
+            margin-top: 100px;
+            margin-bottom: 30px;
             
         }
 
@@ -73,8 +64,8 @@
             stroke-width: 10;
             stroke-linecap: round;
             stroke-dasharray: 283;
-            stroke-dashoffset: calc(283 - (283 * {{ $totalTasks > 0 ? ($completedTasks / $totalTasks) * 100 : 0 }}) / 100);
-            transition: stroke-dashoffset 0.5s;
+            stroke-dashoffset: calc(283 - (283 * {{ $totalTasks > 0 ? ($completedTasks / $totalTasks) * 100 : 0 }} / 100));
+            transition: stroke-dashoffset 0.6s ease;
         }
 
         .progress-circle .percentage {

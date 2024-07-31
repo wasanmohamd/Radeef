@@ -1,13 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layout')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
+@section('title', 'Technical Support')
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-
+@section('content')
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -16,60 +11,9 @@
             background-color: #f2f2f2;
         }
 
-        #header {
-            background: #E4D1DD;
-            z-index: 997;
-            transition: all 0.5s ease;
-            padding: 20px 0;
-        }
+        
 
-        #header #logo h1 {
-            color: #505050;
-            font-size: 28px;
-            font-weight: 600;
-            letter-spacing: 1px;
-            margin: 0;
-        }
-
-        #header #logo h1 a span {
-            color: #8B5373;
-        }
-
-        #header #logo img {
-            padding: 0;
-            margin: 0;
-        }
-
-        .navbar ul {
-            margin: 0;
-            padding: 0;
-            display: flex;
-            list-style: none;
-            align-items: center;
-        }
-
-        .navbar a,
-        .navbar a:focus {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 10px 0 10px 30px;
-            font-family: "Roboto", sans-serif;
-            font-size: 15px;
-            color: #222;
-            white-space: nowrap;
-            transition: 0.3s;
-            letter-spacing: 0;
-        }
-
-        .navbar a:hover,
-        .navbar .active,
-        .navbar .active:focus,
-        .navbar li:hover>a {
-            color: #8B5373;
-        }
-
-        .container {
+         #cont{
             margin: 50px auto;
             width: 60%;
             background-color: #fff;
@@ -138,28 +82,10 @@
             background-color: #6f3d55;
         }
     </style>
-</head>
 
-<body>
+    
 
-    <header id="header" class="header fixed-top d-flex align-items-center">
-        <div class="profile-container d-flex align-items-center justify-content-between">
-            <div id="logo">
-                <img src="assets/img/logo-radeef - Copy.png" alt="Radeeef" style="width: 150px;">
-            </div>
-            <nav id="navbar" class="navbar">
-                <ul>
-                    <li><a class="nav-link scrollto active" href="landing">Radeef</a></li>
-                    <li><a class="nav-link scrollto" href="landing">Why Radeef?</a></li>
-                    <li><a class="nav-link scrollto" href="landing">About Us</a></li>
-                    <li><a class="nav-link scrollto" href="landing">Team</a></li>
-                    <li><a class="nav-link scrollto" href="landing">Support</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <div class="container">
+    <div class="container" id="cont">
         <h2>Account Information:</h2>
         
         @if(session()->has('success'))
@@ -228,6 +154,4 @@
             <button type="submit" class="btn">Change Password</button>
         </form>
     </div>
-</body>
-
-</html>
+@endsection

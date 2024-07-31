@@ -1,135 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-    <title>Radeef</title>
-    <meta content="" name="description">
-    <meta content="" name="keywords">
-    <link rel="stylesheet" href="{{ asset('asset\css\style.css') }}">
-    <!-- Favicons -->
-    <link href="assets\logo-radeef - Copy.png" rel="icon">
-    <link href="assets\logo-radeef - Copy.png" rel="apple-touch-icon">
-
-    <!-- Google Fonts -->
-    <link
-        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Roboto:100,300,400,500,700|Philosopher:400,400i,700,700i"
-        rel="stylesheet">
-
-    <!-- Vendor CSS Files -->
-    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-    <!-- Template Main CSS File -->
-    <link href="assets\css\style.css" rel="stylesheet">
-
-</head>
-
-<body>
-
-    <!-- ======= Radeef ======= -->
-    <header id="header" class="header fixed-top d-flex align-items-center">
-        <div class="container d-flex align-items-center justify-content-between">
-
-            <div id="logo">
-                <img src="assets\img\logo-radeef - Copy.png" alt="Radeeef" style="width: 150px;">
-            </div>
-
-            <nav id="navbar" class="navbar">
-                <ul>
-                    @auth
-                    <li class="nav-item">
-                        <a class="nav-link" href="/landing#hero">Radeef</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="/landing#features">Why Radeef?</a>
-                    </li>
-
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="landing#Services" id="servicesDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">Services</a>
-                        <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
-                            <li class="dropdown-header">Services</li>
-                            <li><a class="dropdown-item" href="#">To-Do list</a></li>
-                            <li><a class="dropdown-item" href="/note">Daily Notes</a></li>
-                            <li><a class="dropdown-item" href="#">Task Progress</a></li>
-                        </ul>
-
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="/landing#screenshots">About Us</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="/landing#team">Team</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="/landing#contact">Support</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="/technicalSupport">Admin </a>
-                    </li>
-                    @else
-                    <li class="nav-item">
-                        <a class="nav-link" href="/landing#hero">Radeef</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="/landing#features">Why Radeef?</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="/landing#screenshots">About Us</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="/landing#team">Team</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="/landing#contact">Support</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('register') }}">Register</a>
-                    </li>
 
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">Log In</a>
-                    </li>
-                    @endauth
-                </ul>
-                @auth
-                <span class="navbar-text dropdown">
-                    <a class="dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        {{ auth()->user()->name }}
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="userDropdown">
-                        <li class="dropdown-header">Account</li>
-                        <li><a class="dropdown-item" href="/profile">Profile</a></li>
-                        <!-- <li><a class="dropdown-item" href="#">Settings</a></li> -->
-                        <li><a class="dropdown-item" href="{{ route('logout') }}">Log Out</a></li>
-                    </ul>
-                </span>
-                @endauth
+@extends('layout')
 
-                <i class="bi bi-list mobile-nav-toggle"></i>
-            </nav><!-- .navbar -->
+@section('title', 'Technical Support')
 
-        </div>
-    </header><!-- End Header -->
+@section('content')
 
+<style>
+    button[type="submit"] {
+        background-color: #a0527a;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    button[type="submit"]:hover {
+        background-color: #8d3d5e;
+    }
+
+    .alert-message {
+        background-color: #a0527a;
+        color: #fff;
+        padding: 10px;
+        margin-top: 10px;
+        text-align: center;
+        display: none; /* Initially hide the alert message */
+    }
+</style>
     <!-- ======= Radeef Section ======= -->
     <section id="hero">
         <div class="hero-container" data-aos="fade-in">
@@ -201,7 +101,7 @@
                             <p>A tool for organizing activities and tasks that helps you arrange your priorities and
                                 complete your
                                 tasks effectively.</p>
-                            <a href="/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                            <a href="/todos/create"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                     fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
                                     <path fill-rule="evenodd"
                                         d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8" />
@@ -218,7 +118,7 @@
                             <p>Tracking the implementation of work and activities. It helps you know the level of
                                 achievement and plan
                                 the next steps.</p>
-                            <a href="/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                            <a href="/taskprogress"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                     fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
                                     <path fill-rule="evenodd"
                                         d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8" />
@@ -234,7 +134,7 @@
                             <p>A tool for recording important ideas and information. They help you remember details and
                                 organize your
                                 thoughts better.</p>
-                            <a href="/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                            <a href="/note"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                     fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
                                     <path fill-rule="evenodd"
                                         d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8" />
@@ -295,7 +195,7 @@
                             <div class="team-content">
                                 <ul class="list-unstyled">
                                     <li><a href="https://x.com/d__a31?s=21"><i class="bi bi-twitter"></i></a></li>
-                                    <li><a
+                                    <li><a 
                                             href="https://www.linkedin.com/in/danah-alramadani-58b435295?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"><i
                                                 class="bi bi-linkedin"></i></a></li>
                                 </ul>
@@ -364,7 +264,9 @@
 
                     <div class="col-lg-5 col-md-8">
                         <div class="form">
-                            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                            <form action="/inquiry-submit" method="post"  class="inquiry-form">
+
+                            @csrf
                                 <div class="form-group">
                                     <input type="text" name="name" class="form-control" id="name"
                                         placeholder="Your Name" required>
@@ -382,11 +284,13 @@
                                         required></textarea>
                                 </div>
                                 <div class="my-3">
-                                    <div class="loading">Loading</div>
-                                    <div class="error-message"></div>
-                                    <div class="sent-message">Your message has been sent. Thank you!</div>
-                                </div>
-                                <div class="text-center"><button type="submit">Send Message</button></div>
+    <div class="loading"></div>
+    <div class="error-message"></div>
+    <div class="sent-message"></div>
+    <div class="alert-message"></div> <!-- Add this line for the alert message -->
+</div>
+                                <div  class="text-center"><button type="submit">Send Message</button>
+                               </div>
                             </form>
                         </div>
                     </div>
@@ -395,73 +299,24 @@
         </section><!-- End Support Section -->
 
     </main><!-- End #main -->
+    <script>
+    // Get the form element
+    const form = document.querySelector('/inquiry-form');
 
-    <!-- ======= Footer ======= -->
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
 
-                <div class="col-md-12 col-lg-4">
-                    <div class="footer-logo">
+        // You can add AJAX request here to submit the form data
 
-                        <img src="assets\img\logo-radeef - Copy.png" alt="Radeeef" style="width: 300px;">
+        // Simulating form submission
+        // Assuming the form submission is successful
+        // Show the alert message
+        const alertMessage = document.querySelector('.alert-message');
+        alertMessage.innerText = 'Your message has been sent. Thank you!';
+        alertMessage.style.display = 'block';
 
-                    </div>
-                </div>
-
-                <div class="col-sm-6 col-md-3 col-lg-2">
-                    <div class="list-menu">
-
-                        <h4>Call Us</h4>
-                        <p class="bi bi-phone"> +966 560000000</p>
-
-                    </div>
-                </div>
-
-                <div class="col-sm-6 col-md-3 col-lg-2">
-                    <div class="list-menu">
-
-                        <h4>Send us a message</h4>
-                        <p class="bi bi-envelope"> Radeef000@gmail.com</p>
-
-                    </div>
-                </div>
-
-                <div class="col-sm-6 col-md-3 col-lg-2">
-                    <div class="list-menu">
-
-                        <h4>Follow us</h4>
-
-                        <ul class="list-unstyled">
-                            <a href="#"><i class="bi bi-twitter"></i></a>
-                            <a href="#"><i class="bi bi-instagram"></i></a>
-                        </ul>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="copyrights">
-            <div class="container">
-                <div class="credits">
-                </div>
-            </div>
-        </div>
-    </footer><!-- End  Footer -->
-
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-            class="bi bi-arrow-up-short"></i></a>
-
-    <!-- Vendor JS Files -->
-    <script src="assets/vendor/aos/aos.js"></script>
-    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-    <script src="assets/vendor/php-email-form/validate.js"></script>
-
-    <!-- Template Main JS File -->
-    <script src="assets\js\main.js"></script>
-
-</body>
-
-</html>
+        // Reset the form after submission
+        form.reset();
+    });
+</script>
+    @endsection

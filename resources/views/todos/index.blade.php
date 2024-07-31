@@ -1,34 +1,43 @@
 @extends('layout')
 
-@section('title', 'To Do List')
+@section('title', 'create')
 
 @section('content')
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title')</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <style>
-        body {
+       /* body {
             font-family: 'Arial', sans-serif;
             background-color: #f2f2f2;
             margin: 0;
             padding: 0;
-        }
+        } */
 
         .container {
-            margin-top: 50px;
+            margin-top: 10px;
         }
+
+        .btn-back {
+        position: absolute;
+        top: 20px;
+        left: 10px;
+        background-color: #d4b8c6;
+        color: #e4d1dd;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        stroke: #ffffff;
+
+        }
+
 
         .card {
             background-color: #ffffff;
             border-radius: 15px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             border: none;
+            margin-top: 200px;
+            margin-bottom: 200px;
+
         }
 
         .card-header {
@@ -40,6 +49,7 @@
             padding: 15px;
             border-top-left-radius: 15px;
             border-top-right-radius: 15px;
+            margin-top: 0px;
         }
 
         .card-body {
@@ -47,9 +57,10 @@
         }
 
         .table {
-            margin-top: 20px;
+            margin-top: 10px;
             table-layout: fixed;
             width: 100%;
+            border-collapse: collapse; /* Ensure no double borders */
         }
 
         .table th,
@@ -59,6 +70,7 @@
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
+            border: 1px solid #ddd; /* Add consistent borders */
         }
 
         .table th {
@@ -72,81 +84,45 @@
         }
 
         .col-title {
-            width: 20%;
-        }
-
-        .col-description {
-            width: 35%;
-        }
-
-        .col-completed {
-            width: 20%;
-        }
-
-        .col-actions {
             width: 25%;
         }
 
-        .btn-info {
-            background-color: #a0527a;
-            color: #ffffff;
+        .col-description {
+            width: 40%;
+        }
+
+        .col-completed {
+            width: 25%;
+        }
+
+        .col-actions {
+            width: 45%;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 5px 10px;
+            font-size: 12px;
+            text-align: center;
+            text-decoration: none;
             border-radius: 8px;
-        }
-
-        .btn-info:hover {
-            background-color: #a0527a;
-        }
-
-        .btn-success {
-            background-color: #d4b8c6;
-            color: #ffffff;
-            border-radius: 8px;
-        }
-
-        .btn-success:hover {
-            background-color: #d4b8c6;
-        }
-
-        .btn-incomplete {
-            background-color: #a0527a;
-            color: #ffffff;
-            border-radius: 8px;
+            border: none;
+            cursor: pointer;
         }
 
         .btn-view {
             background-color: #C676A3;
             color: #ffffff;
-            border-radius: 8px;
-            padding: 3px 8px;
-            font-size: 12px;
         }
 
         .btn-edit {
             background-color: #A6678B;
             color: #ffffff;
-            border-radius: 8px;
-            padding: 3px 8px;
-            font-size: 12px;
         }
 
         .btn-delete {
             background-color: #a21f1f;
             color: #ffffff;
-            border-radius: 8px;
-            padding: 3px 8px;
-            font-size: 12px;
-        }
-
-        .btn-exportpage {
-            background-color: #a0527a;
-            color: #ffffff;
-            border-radius: 8px;
-        }
-
-        .btn-taskprogress {
-            background-color: #a0527a;
-            color: #ffffff;
-            border-radius: 8px;
         }
 
         .alert-success {
@@ -165,19 +141,63 @@
             padding: 10px;
         }
 
+        
+        .btn-incomplete
+        {
+
+            background-color: #894565;
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            padding: 5px 10px;
+        }
+
+        .btn-success
+        {
+
+            background-color: #E4D1DD;
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            padding: 5px 10px;
+        }
+
+        .btn-taskprogress
+        {
+
+            background-color: #894565;
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 10px;
+        }
+        .btn-info {
+    color: #ffffff;
+    background-color: #894565;
+    border-color: #894565;
+    padding: 10px 10px;
+}
+
+
+.btn-info:hover {
+    color: #ffffff;
+    background-color: #8B5373;
+    border-color: #894565;
+    padding: 10px 10px;
+}
+        .btn-success:hover
+        {
+
+            background-color: #E4D1DD;
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            padding: 5px 10px;
+        }
+
+
         form {
             display: inline-block;
-        }
-
-        #outer {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-        }
-
-        .inner {
-            margin: 0 2px;
-            flex-grow: 1;
         }
 
         h4 {
@@ -196,10 +216,18 @@
             color: red;
             display: none;
         }
-    </style>
-</head>
 
-<body>
+        img,
+        svg {
+            vertical-align: middle;
+        }
+
+      
+
+
+    </style>
+
+
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -223,20 +251,20 @@
                             {{ session()->get('error') }}
                         </div>
                         @endif
-                        <a class="btn btn-sm btn-info" href="{{route('todos.create')}}">
+                        <a class="btn btn-info" href="{{route('todos.create')}}">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
                                 <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
                             </svg>
                         </a>
-
-                        <a href="{{ route('todos.export_to_svg') }}" class="btn btn-exportpage">
-                        Export to SVG
-                        </a>
-                        
                         <a href="{{ route('task.progress') }}" class="btn btn-taskprogress">View Task Progress</a>
-                        
+                        <a class="btn btn-back" href="/landing">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-arrow-left" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8" />
+                            </svg>
+                        </a>
                         <div id="error-message" class="mt-3"></div>
-                        <!-- <svg id="svg-output"></svg> -->
 
                         @if(count($todos) > 0)
                         <table class="table">
@@ -262,7 +290,6 @@
                                     </td>
                                     <td id="outer">
                                         <a class="inner btn btn-sm btn-view" href="{{ route('todos.show', $todo->id) }}">View</a>
-                                        
                                         <a class="inner btn btn-sm btn-edit" href="{{ route('todos.edit', $todo->id) }}">Edit</a>
                                         <form method="post" action="{{route('todos.destroy')}}" class="inner">
                                             @csrf
@@ -283,27 +310,4 @@
             </div>
         </div>
     </div>
-
-    <script>
-        document.getElementById('export-svg-btn').addEventListener('click', function() {
-            fetch('{{ route('todos.export_to_svg') }}')
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok');
-                    }
-                    return response.text();
-                })
-                .then(svgData => {
-                    document.getElementById('svg-output').innerHTML = svgData;
-                    document.getElementById('error-message').style.display = 'none';
-                })
-                .catch(error => {
-                    document.getElementById('error-message').textContent = 'Error: ' + error.message;
-                    document.getElementById('error-message').style.display = 'block';
-                });
-        });
-    </script>
-</body>
-
-</html>
-@endsection
+    @endsection
