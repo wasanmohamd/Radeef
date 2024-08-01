@@ -2,7 +2,7 @@
 
 Radeef in Arabic means a follower, someone who follows you and comes behind you.
 
-![Radeef Logo]("C:\Users\Danaa\OneDrive\الصور\لقطات الشاشة\Screenshot 2024-07-24 110819.png")
+![Radeef Logo]("assets/images/radeef's logo.png")
 
 ## Why Radeef?
 
