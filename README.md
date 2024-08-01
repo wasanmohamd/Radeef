@@ -2,10 +2,9 @@
 
 Radeef in Arabic means a follower, someone who follows you and comes behind you.
 
-![Radeef Logo]("assets/img/logo-radeef.png")
+![Radeef Logo](assets/img/logo-radeef.png)
 
 ## Why Radeef?
-
 
 - **Secured**
   - Discover personalized mental health support tailored to your unique needs.
@@ -15,7 +14,6 @@ Radeef in Arabic means a follower, someone who follows you and comes behind you.
 
 - **Easy To Use**
   - Experience the benefits of clear and simple language in receiving personalized mental health support.
-
 
 ## Services
 
@@ -28,12 +26,9 @@ Radeef in Arabic means a follower, someone who follows you and comes behind you.
 ### Notes
 - Capture important ideas and information for better memory retention and thought organization.
 
-
-
 ## About Us
 
 We are a team of passionate students from Umm Al-Qura University—Jood Al-Bogami, Dana Al Ramadani, and Wasan Al-Matrafi. Our collaboration during our training at Wadi Makkah Knowledge Company led to the creation of Radeef. This innovative project addresses information system challenges by enhancing efficiency in data management, analysis, and retrieval. Radeef is the result of extensive research, rigorous testing, and a deep understanding of industry needs. Our team aims to make a positive impact by providing efficient solutions, believing that Radeef has the potential to revolutionize information handling and empower businesses and individuals to make informed decisions.
-
 
 ## Team Members
 
