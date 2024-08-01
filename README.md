@@ -1,74 +1,62 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Welcome To Radeef
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Radeef in Arabic means a follower, someone who follows you and comes behind you.
 
-## About Radeef
+![Radeef Logo](assets/img/logo-radeef.png)
 
- We are a group of passionate students from Umm Al-Qura University, including Jood
-                                Al-Bogami, Dana Al Ramadani, and Wasan Al-Matrafi, who collaborated during their
-                                training period at Wadi Makkah Knowledge Company to create Radeef. This innovative
-                                project addresses challenges in information systems by enhancing efficiency in
-                                information management, analysis, and retrieval. Radeef is the result of extensive
-                                research, rigorous testing, and a deep understanding of industry needs. The team aims to
-                                make a positive impact by providing efficient solutions and believes that Radeef has the
-                                potential to revolutionize information handling, empowering businesses and individuals
-                                to make informed decisions.
+## Why Radeef?
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Our goals:
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- **Secured**
+  - Discover the value of mental health support tailored to your unique needs
 
-## Learning Laravel
+- **All In One**
+  - Find out how we can help you improve your mental health and wellbeing
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- **Easy To Use**
+  - Experience the benefits of personalized mental health support in clear, simple language
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## Services
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+**To-Do List**
+- A tool for organizing activities and tasks that helps you arrange your priorities and complete your tasks effectively.
+- [Go to To-Do List](/todos/create)
 
-## Laravel Sponsors
+**Task Progress**
+- Tracking the implementation of work and activities. It helps you know the level of achievement and plan the next steps.
+- [Check Task Progress](/taskprogress)
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+**Notes**
+- A tool for recording important ideas and information. They help you remember details and organize your thoughts better.
+- [View Notes](/note)
 
-### Premium Partners
+## About Us
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+We are a group of passionate students from Umm Al-Qura University, including Jood Al-Bogami, Dana Al Ramadani, and Wasan Al-Matrafi, who collaborated during their training period at Wadi Makkah Knowledge Company to create Radeef. This innovative project addresses challenges in information systems by enhancing efficiency in information management, analysis, and retrieval. Radeef is the result of extensive research, rigorous testing, and a deep understanding of industry needs. The team aims to make a positive impact by providing efficient solutions and believes that Radeef has the potential to revolutionize information handling, empowering businesses and individuals to make informed decisions.
 
-## Contributing
+## Team Members
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Danah Al Ramadani
 
-## Code of Conduct
+![Danah Al Ramadani](assets/img/danah.jpg)
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+- [Twitter](https://x.com/d__a31?s=21)
+- [LinkedIn](https://www.linkedin.com/in/danah-alramadani-58b435295?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app)
+- **Role:** Developer
 
-## Security Vulnerabilities
+### Jood Al-Bogami
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+![Jood Al-Bogami](assets/img/jood.jpg)
 
-## License
+- [Twitter](https://twitter.com/joodalbogami)
+- [LinkedIn](https://www.linkedin.com/in/jood-albogami/)
+- **Role:** Designer
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### Wasan Al-Matrafi
+
+![Wasan Al-Matrafi](assets/img/wasan.jpg)
+
+- [Twitter](https://twitter.com/wasanmatrafi)
+- [LinkedIn](https://www.linkedin.com/in/wasan-al-matrafi-123456789/)
+- **Role:** Project Manager
