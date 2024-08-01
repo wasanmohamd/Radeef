@@ -7,9 +7,17 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+## About Radeef
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+ We are a group of passionate students from Umm Al-Qura University, including Jood
+                                Al-Bogami, Dana Al Ramadani, and Wasan Al-Matrafi, who collaborated during their
+                                training period at Wadi Makkah Knowledge Company to create Radeef. This innovative
+                                project addresses challenges in information systems by enhancing efficiency in
+                                information management, analysis, and retrieval. Radeef is the result of extensive
+                                research, rigorous testing, and a deep understanding of industry needs. The team aims to
+                                make a positive impact by providing efficient solutions and believes that Radeef has the
+                                potential to revolutionize information handling, empowering businesses and individuals
+                                to make informed decisions.
 
 - [Simple, fast routing engine](https://laravel.com/docs/routing).
 - [Powerful dependency injection container](https://laravel.com/docs/container).
