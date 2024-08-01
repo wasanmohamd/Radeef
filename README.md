@@ -47,11 +47,9 @@ We are a team of passionate students from Umm Al-Qura University—Jood Al-Bogam
 ### Jood Al-Bogami
 
 - **Role:** Developer
-- [Twitter](https://twitter.com/joodalbogami)
 - [LinkedIn](https://www.linkedin.com/in/jood-albogami/)
 
 ### Wasan Al-Matrafi
 
 - **Role:** Developer
-- [Twitter](https://twitter.com/wasanmatrafi)
 - [LinkedIn](https://www.linkedin.com/in/wasan-al-matrafi-123456789/)
