@@ -24,7 +24,6 @@ Radeef in Arabic means a follower, someone who follows you and comes behind you.
 
 ### Task Progress
 - Track the progress of tasks and projects to assess achievements and plan future steps.
-  - [Check Task Progress](/taskprogress)
 
 ### Notes
 - Capture important ideas and information for better memory retention and thought organization.
