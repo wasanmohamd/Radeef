@@ -6,57 +6,52 @@ Radeef in Arabic means a follower, someone who follows you and comes behind you.
 
 ## Why Radeef?
 
-Our goals:
 
 - **Secured**
-  - Discover the value of mental health support tailored to your unique needs
+  - Discover personalized mental health support tailored to your unique needs.
 
 - **All In One**
-  - Find out how we can help you improve your mental health and wellbeing
+  - Explore how we can contribute to improving your mental health and overall well-being.
 
 - **Easy To Use**
-  - Experience the benefits of personalized mental health support in clear, simple language
+  - Experience the benefits of clear and simple language in receiving personalized mental health support.
+
 
 ## Services
 
-**To-Do List**
-- A tool for organizing activities and tasks that helps you arrange your priorities and complete your tasks effectively.
-- [Go to To-Do List](/todos/create)
+### To-Do List
+- Organize tasks and activities efficiently to prioritize effectively and complete tasks promptly.
 
-**Task Progress**
-- Tracking the implementation of work and activities. It helps you know the level of achievement and plan the next steps.
-- [Check Task Progress](/taskprogress)
+### Task Progress
+- Track the progress of tasks and projects to assess achievements and plan future steps.
+  - [Check Task Progress](/taskprogress)
 
-**Notes**
-- A tool for recording important ideas and information. They help you remember details and organize your thoughts better.
-- [View Notes](/note)
+### Notes
+- Capture important ideas and information for better memory retention and thought organization.
+
+
 
 ## About Us
 
-We are a group of passionate students from Umm Al-Qura University, including Jood Al-Bogami, Dana Al Ramadani, and Wasan Al-Matrafi, who collaborated during their training period at Wadi Makkah Knowledge Company to create Radeef. This innovative project addresses challenges in information systems by enhancing efficiency in information management, analysis, and retrieval. Radeef is the result of extensive research, rigorous testing, and a deep understanding of industry needs. The team aims to make a positive impact by providing efficient solutions and believes that Radeef has the potential to revolutionize information handling, empowering businesses and individuals to make informed decisions.
+We are a team of passionate students from Umm Al-Qura University—Jood Al-Bogami, Dana Al Ramadani, and Wasan Al-Matrafi. Our collaboration during our training at Wadi Makkah Knowledge Company led to the creation of Radeef. This innovative project addresses information system challenges by enhancing efficiency in data management, analysis, and retrieval. Radeef is the result of extensive research, rigorous testing, and a deep understanding of industry needs. Our team aims to make a positive impact by providing efficient solutions, believing that Radeef has the potential to revolutionize information handling and empower businesses and individuals to make informed decisions.
+
 
 ## Team Members
 
 ### Danah Al Ramadani
 
-![Danah Al Ramadani](assets/img/danah.jpg)
-
+- **Role:** Developer
 - [Twitter](https://x.com/d__a31?s=21)
 - [LinkedIn](https://www.linkedin.com/in/danah-alramadani-58b435295?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app)
-- **Role:** Developer
 
 ### Jood Al-Bogami
 
-![Jood Al-Bogami](assets/img/jood.jpg)
-
+- **Role:** Developer
 - [Twitter](https://twitter.com/joodalbogami)
 - [LinkedIn](https://www.linkedin.com/in/jood-albogami/)
-- **Role:** Designer
 
 ### Wasan Al-Matrafi
 
-![Wasan Al-Matrafi](assets/img/wasan.jpg)
-
+- **Role:** Developer
 - [Twitter](https://twitter.com/wasanmatrafi)
 - [LinkedIn](https://www.linkedin.com/in/wasan-al-matrafi-123456789/)
-- **Role:** Project Manager
