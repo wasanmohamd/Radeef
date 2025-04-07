@@ -35,7 +35,6 @@ We are a team of passionate students from Umm Al-Qura University—Jood Al-Bogam
 ### Danah Al Ramadani
 
 - **Role:** Developer
-- [Twitter](https://x.com/end_danahis?s=21)
 - [LinkedIn](https://www.linkedin.com/in/danah-alramadani-58b435295?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app)
 
 ### Jood Al-Bogami
